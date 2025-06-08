@@ -7,86 +7,32 @@
   <link rel="stylesheet" href="CSS/styles.css">
   <style>
     body {
-      background: linear-gradient(to bottom right, #f9f9f9, #dbeafe);
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
+      background: linear-gradient(to bottom, #f0f4ff, #ffffff);
     }
-
-    nav {
-      background-color: #0f172a;
-      padding: 1rem;
-      display: flex;
-      gap: 20px;
+    .crud-container {
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 25px;
+      max-width: 1000px;
+      margin: 30px auto;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     }
-
-    nav a {
-      color: #f1f5f9;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    nav .active {
+    #confirmation {
+      text-align: center;
+      margin-top: 15px;
       font-weight: bold;
-      text-decoration: underline;
+      color: green;
+      display: none;
     }
-
-    h1 {
-      text-align: center;
-      margin: 2rem 0;
-      color: #0f172a;
-    }
-
-    .form-wrapper {
-      max-width: 800px;
-      margin: 0 auto;
-      background-color: white;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    form {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 15px;
-      margin-bottom: 2rem;
-    }
-
-    form input, form button {
-      padding: 10px;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    form button {
-      background-color: #3b82f6;
-      color: white;
-      border: none;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    form button:hover {
-      background-color: #2563eb;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background-color: white;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    }
-
-    table th, table td {
-      padding: 12px;
-      border: 1px solid #e5e7eb;
-      text-align: center;
-    }
-
-    table th {
-      background-color: #f1f5f9;
+    @media screen and (max-width: 768px) {
+      form {
+        flex-direction: column;
+        align-items: center;
+      }
+      form input, form button {
+        width: 90%;
+        margin-bottom: 10px;
+      }
     }
   </style>
 </head>
@@ -98,10 +44,10 @@
     <a href="analytics.html">Analytics</a>
   </nav>
 
-  <h1>Simulate Accident Record (Mock CRUD)</h1>
-  <div class="form-wrapper">
+  <h1 style="text-align:center; margin-top: 20px;">Simulate Accident Record (Mock CRUD)</h1>
+  <div class="crud-container">
     <form id="crudForm">
-      <input type="date" id="crashDate" required>
+      <input type="date" id="crashDate" placeholder="Crash Date (YYYY-MM-DD)" required>
       <input type="text" id="borough" placeholder="Borough" required>
       <input type="number" id="injured" placeholder="# Injured">
       <input type="number" id="killed" placeholder="# Killed">
@@ -109,21 +55,68 @@
       <button type="submit">Add Record</button>
     </form>
 
+    <div id="confirmation">✅ Record added successfully!</div>
+
     <table id="accidentTable">
       <thead>
         <tr>
-          <th>Date</th>
-          <th>Borough</th>
-          <th>Injured</th>
-          <th>Killed</th>
-          <th>Cause</th>
-          <th>Actions</th>
+          <th>Date</th><th>Borough</th><th>Injured</th><th>Killed</th><th>Cause</th><th>Actions</th>
         </tr>
       </thead>
-      <tbody></tbody>
+      <tbody>
+        <tr>
+          <td>2024-01-15</td><td>Manhattan</td><td>2</td><td>0</td><td>Distraction</td><td></td>
+        </tr>
+      </tbody>
     </table>
   </div>
 
   <script src="js/custom.js"></script>
+  <script>
+    const form = document.getElementById('crudForm');
+    const table = document.querySelector('#accidentTable tbody');
+    const confirmation = document.getElementById('confirmation');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const crashDate = document.getElementById('crashDate').value;
+      const borough = document.getElementById('borough').value;
+      const injured = document.getElementById('injured').value;
+      const killed = document.getElementById('killed').value;
+      const cause = document.getElementById('cause').value;
+
+      const row = table.insertRow();
+      row.innerHTML = `
+        <td>${crashDate}</td>
+        <td>${borough}</td>
+        <td>${injured}</td>
+        <td>${killed}</td>
+        <td>${cause}</td>
+        <td>
+          <button onclick="editRow(this)">Update</button>
+          <button onclick="deleteRow(this)">Delete</button>
+        </td>
+      `;
+
+      form.reset();
+      confirmation.style.display = 'block';
+      setTimeout(() => { confirmation.style.display = 'none'; }, 2000);
+    });
+
+    function deleteRow(btn) {
+      btn.closest('tr').remove();
+    }
+
+    function editRow(btn) {
+      const cells = btn.closest('tr').children;
+      document.getElementById('crashDate').value = cells[0].textContent;
+      document.getElementById('borough').value = cells[1].textContent;
+      document.getElementById('injured').value = cells[2].textContent;
+      document.getElementById('killed').value = cells[3].textContent;
+      document.getElementById('cause').value = cells[4].textContent;
+      btn.closest('tr').remove();
+    }
+  </script>
 </body>
 </html>
