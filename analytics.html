@@ -1,42 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Crash Analytics</title>
-  <link rel="stylesheet" href="CSS/styles.css">
+  <link rel="stylesheet" href="CSS/styles.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     body {
-      background: linear-gradient(to bottom right, #f8f9fa, #e0f7fa);
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      padding: 20px;
+      background: linear-gradient(to bottom right, #e0f2ff, #f4f9ff);
     }
-
+    nav {
+      background-color: #0b132b;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      gap: 20px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+    }
+    nav .active {
+      font-weight: bold;
+      text-decoration: underline;
+    }
     h1 {
       text-align: center;
-      font-size: 2rem;
-      margin-bottom: 30px;
-      color: #333;
+      margin-top: 30px;
+      color: #0b132b;
     }
-
-    section {
-      max-width: 900px;
-      margin: auto;
-    }
-
     .chart-section {
-      margin-bottom: 40px;
-      padding: 20px;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      margin: 30px auto;
+      max-width: 1200px;
+      padding: 0 20px;
     }
-
+    .chart-box {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      padding: 20px;
+      flex: 1 1 350px;
+      max-width: 500px;
+    }
     canvas {
       max-width: 100%;
-      height: 400px !important;
+      height: auto;
     }
   </style>
 </head>
@@ -48,23 +63,22 @@
     <a href="analytics.html" class="active">Analytics</a>
   </nav>
 
-  <h1>Crash Analytics Dashboard</h1>
-  <section>
-    <div class="chart-section">
+  <h1>Crash Analytics</h1>
+
+  <div class="chart-section">
+    <div class="chart-box">
       <h2 style="text-align:center;">Crashes by Borough</h2>
       <canvas id="boroughChart"></canvas>
     </div>
-
-    <div class="chart-section">
-      <h2 style="text-align:center;">Motorcyclist Fatalities Over the Years</h2>
+    <div class="chart-box">
+      <h2 style="text-align:center;">Fatalities Over Time</h2>
       <canvas id="fatalityChart"></canvas>
     </div>
-
-    <div class="chart-section">
-      <h2 style="text-align:center;">Top Contributing Factors</h2>
+    <div class="chart-box">
+      <h2 style="text-align:center;">Contributing Factors</h2>
       <canvas id="factorChart"></canvas>
     </div>
-  </section>
+  </div>
 
   <script>
     new Chart(document.getElementById("boroughChart"), {
@@ -74,7 +88,7 @@
         datasets: [{
           label: 'Crashes',
           data: [1084, 943, 692, 322, 95],
-          backgroundColor: '#00bcd4'
+          backgroundColor: '#2e86de'
         }]
       },
       options: {
@@ -94,14 +108,19 @@
         datasets: [{
           label: 'Fatalities',
           data: [8, 31, 25, 20, 1],
+          borderColor: '#e74c3c',
           fill: false,
-          borderColor: '#f44336',
           tension: 0.3,
-          pointBackgroundColor: '#f44336'
+          pointBackgroundColor: '#e74c3c'
         }]
       },
       options: {
-        responsive: true
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
       }
     });
 
@@ -112,17 +131,16 @@
         datasets: [{
           label: 'Factors',
           data: [2104, 381, 157, 157, 154],
-          backgroundColor: [
-            '#3f51b5',
-            '#00acc1',
-            '#ffa000',
-            '#ff7043',
-            '#9ccc65'
-          ]
+          backgroundColor: ['#1f77b4', '#17becf', '#ff7f0e', '#d62728', '#2ca02c']
         }]
       },
       options: {
-        responsive: true
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'bottom'
+          }
+        }
       }
     });
   </script>
