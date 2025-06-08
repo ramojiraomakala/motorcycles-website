@@ -1,10 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About Us</title>
-  <link rel="stylesheet" href="CSS/styles.css">
+  <link rel="stylesheet" href="CSS/styles.css"/>
+  <style>
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .section {
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    p, ul {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    a.repo-link {
+      display: inline-block;
+      margin-top: 10px;
+      color: #007bff;
+    }
+  </style>
 </head>
 <body>
   <nav>
@@ -13,9 +40,37 @@
     <a href="crud.html">CRUD</a>
     <a href="analytics.html">Analytics</a>
   </nav>
-  <h1>About This Project</h1>
-  <p>This website was developed as part of an academic assignment in ISM 6225 at the University of South Florida. It presents real-world crash data involving motorcycles.</p>
-  <p>Created by: Ramoji Rao Makala</p>
-  <p><a href="https://github.com/ramojiraomakala/motorcycles-website" target="_blank">GitHub Repository</a></p>
+
+  <div class="container">
+    <h1>About This Project</h1>
+
+    <div class="section">
+      <p>This website was created as part of an academic project for <strong>ISM 6225 – Distributed Information Systems</strong> at the University of South Florida.</p>
+      <p>It provides a dashboard and interactive tools to explore crash statistics involving motorcycles, with a focus on NYC accident data.</p>
+    </div>
+
+    <div class="section">
+      <h2>Key Features</h2>
+      <ul>
+        <li>Interactive data visualizations (Chart.js)</li>
+        <li>Mock CRUD (Create, Read, Update, Delete) operations</li>
+        <li>Responsive and accessible design</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Technologies Used</h2>
+      <ul>
+        <li>HTML5, CSS3, JavaScript</li>
+        <li>Chart.js for analytics</li>
+        <li>GitHub & Cyberduck for deployment</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <p><strong>Created by:</strong> Ramoji Rao Makala</p>
+      <p><a class="repo-link" href="https://github.com/ramojiraomakala/motorcycles-website" target="_blank">View GitHub Repository</a></p>
+    </div>
+  </div>
 </body>
 </html>
