@@ -5,6 +5,104 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Motorbike CRUD</title>
   <link rel="stylesheet" href="CSS/styles.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background-color: #fff;
+      padding: 15px 30px;
+      display: flex;
+      gap: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    nav .active {
+      color: #007bff;
+      font-weight: bold;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 40px 0 20px;
+      color: #222;
+    }
+
+    form {
+      max-width: 700px;
+      margin: 0 auto 40px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+
+    form input, form button {
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      flex: 1 1 220px;
+    }
+
+    form button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    table {
+      width: 90%;
+      margin: 0 auto 40px;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+
+    th, td {
+      padding: 12px 15px;
+      border: 1px solid #e0e0e0;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f2f2f2;
+      color: #333;
+    }
+
+    button.edit-btn, button.delete-btn {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button.edit-btn {
+      background-color: #ffc107;
+      color: #000;
+    }
+
+    button.delete-btn {
+      background-color: #dc3545;
+      color: #fff;
+    }
+  </style>
 </head>
 <body>
   <nav>
@@ -13,23 +111,32 @@
     <a href="crud.html" class="active">CRUD</a>
     <a href="analytics.html">Analytics</a>
   </nav>
-  <h1>Mock Accident Management</h1>
+
+  <h1>Simulate Accident Record (Mock CRUD)</h1>
+
   <form id="crudForm">
-    <input type="text" id="crashDate" placeholder="Crash Date (YYYY-MM-DD)" required>
+    <input type="date" id="crashDate" placeholder="Crash Date (YYYY-MM-DD)" required>
     <input type="text" id="borough" placeholder="Borough" required>
     <input type="number" id="injured" placeholder="# Injured">
     <input type="number" id="killed" placeholder="# Killed">
     <input type="text" id="cause" placeholder="Cause of Accident">
     <button type="submit">Add Record</button>
   </form>
+
   <table id="accidentTable">
     <thead>
       <tr>
-        <th>Date</th><th>Borough</th><th>Injured</th><th>Killed</th><th>Cause</th><th>Actions</th>
+        <th>Date</th>
+        <th>Borough</th>
+        <th>Injured</th>
+        <th>Killed</th>
+        <th>Cause</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody></tbody>
   </table>
+
   <script src="js/custom.js"></script>
 </body>
 </html>
