@@ -6,12 +6,57 @@
   <title>Motorcycle Crash Dashboard</title>
   <link rel="stylesheet" href="CSS/styles.css">
   <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background-color: #333;
+      padding: 10px 20px;
+      display: flex;
+      gap: 15px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a.active {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
     .banner {
       width: 100%;
-      max-height: 400px;
+      max-height: 450px;
       object-fit: contain;
       display: block;
-      margin: 0 auto 20px;
+      margin: 0 auto;
+    }
+
+    section {
+      text-align: center;
+      padding: 30px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1 {
+      margin-top: 30px;
+      font-size: 2em;
+      color: #222;
+    }
+
+    p {
+      font-size: 1.1em;
+      color: #444;
+      margin-top: 15px;
+      line-height: 1.6;
     }
   </style>
 </head>
@@ -24,9 +69,13 @@
   </nav>
 
   <section>
-    <img src="images/Motorcycle_Safety.jpg" alt="Motorcycle Banner" class="banner">    
+    <img src="images/Motorcycle_Safety.jpg" alt="Motorcycle Banner" class="banner">
     <h1>Welcome to Motorcycle Crash Insights</h1>
-    <p>This site explores accident statistics involving motorcycles across NYC boroughs. Dive into trends, causes, and simulate accident records using the menu above.</p>
+    <p>
+      This interactive website brings awareness to motorcycle-related accidents in New York City.
+      It showcases visual insights, common causes of crashes, and allows users to simulate and manage accident records.
+      Use the navigation above to learn more and engage with the data.
+    </p>
   </section>
 </body>
 </html>
