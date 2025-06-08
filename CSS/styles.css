@@ -1,34 +1,67 @@
+/* CSS/styles.css */
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 20px;
+  background-color: #f9f9f9;
 }
 
-header {
-  background-color: #222;
-  color: white;
-  padding: 1em;
-  text-align: center;
+nav {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 15px;
 }
 
 nav a {
-  color: #f4f4f4;
-  margin: 0 15px;
   text-decoration: none;
+  color: #333;
 }
 
-main {
-  padding: 2em;
+nav .active {
+  font-weight: bold;
+  color: #007bff;
+}
+
+h1 {
   text-align: center;
 }
 
-footer {
-  background-color: #222;
-  color: white;
-  text-align: center;
-  padding: 1em;
-  position: fixed;
-  bottom: 0;
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+form input, form button {
+  padding: 10px;
+  font-size: 1rem;
+}
+
+#accidentTable {
   width: 100%;
+  border-collapse: collapse;
+}
+
+#accidentTable th, #accidentTable td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+.banner {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  nav {
+    flex-direction: column;
+  }
+
+  form input, form button {
+    width: 100%;
+  }
 }

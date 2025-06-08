@@ -2,74 +2,57 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Motorbike Accident Analytics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics</title>
   <link rel="stylesheet" href="CSS/styles.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <nav>
-    <a href="index.html">Home</a> |
-    <a href="aboutus.html">About Us</a> |
-    <a href="crud.html">CRUD</a> |
-    <a href="analytics.html">Analytics</a>
+    <a href="index.html">Home</a>
+    <a href="aboutus.html">About Us</a>
+    <a href="crud.html">CRUD</a>
+    <a href="analytics.html" class="active">Analytics</a>
   </nav>
-
-  <h1>Motorbike Accident Analytics</h1>
-
-  <section>
-    <h2>Motorcycle Accidents per Borough</h2>
-    <canvas id="boroughChart" width="400" height="200"></canvas>
-  </section>
-
-  <section>
-    <h2>Top 5 Contributing Factors</h2>
-    <canvas id="causeChart" width="400" height="200"></canvas>
-  </section>
-
-  <section>
-    <h2>Fatalities per Year (2012–2016)</h2>
-    <canvas id="fatalityChart" width="400" height="200"></canvas>
-  </section>
-
+  <h1>Crash Analytics</h1>
+  <canvas id="boroughChart"></canvas>
+  <canvas id="fatalityChart"></canvas>
+  <canvas id="factorChart"></canvas>
   <script>
-    // Borough Chart (Bar)
-    new Chart(document.getElementById('boroughChart'), {
+    new Chart(document.getElementById("boroughChart"), {
       type: 'bar',
       data: {
-        labels: ['Manhattan', 'Brooklyn', 'Queens', 'Bronx', 'Staten Island'],
+        labels: ["MANHATTAN", "BROOKLYN", "QUEENS", "BRONX", "STATEN ISLAND"],
         datasets: [{
-          label: 'Accidents',
-          data: [1084, 943, 692, 322, 95],
-          backgroundColor: 'rgba(255, 99, 132, 0.7)'
+          label: 'Crashes',
+          data: [1084, 943, 692, 322, 95]
         }]
-      }
+      },
+      options: { responsive: true }
     });
 
-    // Cause Chart (Pie)
-    new Chart(document.getElementById('causeChart'), {
-      type: 'pie',
-      data: {
-        labels: ['Unspecified', 'Driver Inattention/Distraction', 'Failure to Yield', 'Outside Car Distraction', 'Other Vehicular'],
-        datasets: [{
-          data: [2104, 381, 157, 157, 154],
-          backgroundColor: ['#f94144', '#f3722c', '#f9c74f', '#90be6d', '#577590']
-        }]
-      }
-    });
-
-    // Fatality Chart (Line)
-    new Chart(document.getElementById('fatalityChart'), {
+    new Chart(document.getElementById("fatalityChart"), {
       type: 'line',
       data: {
-        labels: ['2012', '2013', '2014', '2015', '2016'],
+        labels: ["2012", "2013", "2014", "2015", "2016"],
         datasets: [{
           label: 'Fatalities',
-          data: [8, 31, 25, 20, 1],
-          borderColor: '#1f77b4',
-          fill: false,
-          tension: 0.3
+          data: [8, 31, 25, 20, 1]
         }]
-      }
+      },
+      options: { responsive: true }
+    });
+
+    new Chart(document.getElementById("factorChart"), {
+      type: 'pie',
+      data: {
+        labels: ["Unspecified", "Inattention", "Failure to Yield", "Outside Distraction", "Vehicular"],
+        datasets: [{
+          label: 'Factors',
+          data: [2104, 381, 157, 157, 154]
+        }]
+      },
+      options: { responsive: true }
     });
   </script>
 </body>
