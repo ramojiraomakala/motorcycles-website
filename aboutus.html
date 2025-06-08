@@ -2,84 +2,77 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Us</title>
-  <link rel="stylesheet" href="CSS/styles.css"/>
+  <link rel="stylesheet" href="CSS/styles.css" />
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: #fefefe;
+      background-color: #f9f9f9;
       margin: 0;
       padding: 0;
     }
 
+    nav {
+      background-color: #ffffff;
+      padding: 15px 30px;
+      display: flex;
+      gap: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    nav .active {
+      color: #007bff;
+      font-weight: bold;
+    }
+
     .container {
-      max-width: 960px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 30px 20px;
+      padding: 40px 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
     }
 
     h1 {
       text-align: center;
-      font-size: 2.4rem;
-      margin-bottom: 25px;
+      margin-bottom: 30px;
+      font-size: 2rem;
     }
 
     .about-image {
       display: block;
-      max-width: 600px;
-      width: 100%;
-      margin: 0 auto 40px auto;
-      border-radius: 8px;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-    }
-
-    .section {
-      margin-bottom: 30px;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      margin-top: 20px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin: 0 auto 30px auto;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
     p, ul {
       font-size: 1.1rem;
-      line-height: 1.8;
+      line-height: 1.6;
+      color: #333;
     }
 
-    ul {
-      padding-left: 20px;
+    h2 {
+      margin-top: 30px;
+      font-size: 1.5rem;
+      color: #222;
     }
 
     .repo-link {
       display: inline-block;
-      margin-top: 10px;
+      margin-top: 20px;
       color: #007bff;
       text-decoration: none;
-    }
-
-    .repo-link:hover {
-      text-decoration: underline;
-    }
-
-    @media screen and (max-width: 600px) {
-      .container {
-        padding: 20px 12px;
-      }
-
-      h1 {
-        font-size: 1.8rem;
-      }
-
-      .about-image {
-        max-width: 100%;
-        height: auto;
-      }
-
-      p, ul {
-        font-size: 1rem;
-      }
     }
   </style>
 </head>
@@ -93,36 +86,27 @@
 
   <div class="container">
     <h1>About This Project</h1>
-
     <img src="images/about-speedometer.jpg" alt="Motorcycle Dashboard" class="about-image" />
 
-    <div class="section">
-      <p>This website was created as part of an academic project for <strong>ISM 6225 – Distributed Information Systems</strong> at the University of South Florida.</p>
-      <p>It provides a dashboard and interactive tools to explore crash statistics involving motorcycles, with a focus on NYC accident data.</p>
-    </div>
+    <p>This website was created as part of an academic project for <strong>ISM 6225 – Distributed Information Systems</strong> at the University of South Florida.</p>
+    <p>It provides a dashboard and interactive tools to explore crash statistics involving motorcycles, with a focus on NYC accident data.</p>
 
-    <div class="section">
-      <h2>Key Features</h2>
-      <ul>
-        <li>Interactive data visualizations (Chart.js)</li>
-        <li>Mock CRUD (Create, Read, Update, Delete) operations</li>
-        <li>Responsive and accessible design</li>
-      </ul>
-    </div>
+    <h2>Key Features</h2>
+    <ul>
+      <li>Interactive data visualizations (Chart.js)</li>
+      <li>Mock CRUD (Create, Read, Update, Delete) operations</li>
+      <li>Responsive and accessible design</li>
+    </ul>
 
-    <div class="section">
-      <h2>Technologies Used</h2>
-      <ul>
-        <li>HTML5, CSS3, JavaScript</li>
-        <li>Chart.js for analytics</li>
-        <li>GitHub & Cyberduck for deployment</li>
-      </ul>
-    </div>
+    <h2>Technologies Used</h2>
+    <ul>
+      <li>HTML5, CSS3, JavaScript</li>
+      <li>Chart.js for analytics</li>
+      <li>GitHub & Cyberduck for deployment</li>
+    </ul>
 
-    <div class="section">
-      <p><strong>Created by:</strong> Ramoji Rao Makala</p>
-      <p><a class="repo-link" href="https://github.com/ramojiraomakala/motorcycles-website" target="_blank">View GitHub Repository</a></p>
-    </div>
+    <p><strong>Created by:</strong> Ramoji Rao Makala</p>
+    <a class="repo-link" href="https://github.com/ramojiraomakala/motorcycles-website" target="_blank">View GitHub Repository</a>
   </div>
 </body>
 </html>
