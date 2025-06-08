@@ -3,31 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Crash Analytics</title>
+  <title>Crash Analytics Dashboard</title>
   <link rel="stylesheet" href="CSS/styles.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    .analytics-container {
-      max-width: 1000px;
-      margin: 40px auto;
-      background: #ffffff;
-      padding: 30px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: linear-gradient(to bottom, #f0f4f8, #d9e2ec);
+      padding: 0;
     }
-
+    nav {
+      background-color: #0d1b2a;
+      padding: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav a.active {
+      color: #00bcd4;
+    }
     h1 {
       text-align: center;
-      margin-bottom: 40px;
-      font-size: 2rem;
-      color: #333;
+      margin-top: 40px;
+      font-size: 2.5rem;
+      color: #102a43;
     }
-
-    canvas {
+    .chart-container {
+      max-width: 1000px;
       margin: 30px auto;
-      display: block;
+      padding: 30px;
+      background: #fff;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+    }
+    canvas {
+      margin: 40px auto;
       max-width: 100%;
-      height: auto;
     }
   </style>
 </head>
@@ -39,11 +56,14 @@
     <a href="analytics.html" class="active">Analytics</a>
   </nav>
 
-  <div class="analytics-container">
-    <h1>Crash Analytics Dashboard</h1>
+  <h1>Crash Analytics Dashboard</h1>
 
+  <div class="chart-container">
+    <h2 style="text-align:center">Crashes by Borough</h2>
     <canvas id="boroughChart"></canvas>
+    <h2 style="text-align:center">Motorcyclist Fatalities Over the Years</h2>
     <canvas id="fatalityChart"></canvas>
+    <h2 style="text-align:center">Top Contributing Factors</h2>
     <canvas id="factorChart"></canvas>
   </div>
 
@@ -53,16 +73,18 @@
       data: {
         labels: ["MANHATTAN", "BROOKLYN", "QUEENS", "BRONX", "STATEN ISLAND"],
         datasets: [{
-          label: 'Crashes by Borough',
+          label: 'Number of Crashes',
           data: [1084, 943, 692, 322, 95],
-          backgroundColor: '#4e73df'
+          backgroundColor: '#00bcd4'
         }]
       },
       options: {
         responsive: true,
         plugins: {
           legend: { display: false },
-          title: { display: true, text: 'Motorcycle Crashes per Borough' }
+          title: {
+            display: false
+          }
         }
       }
     });
@@ -72,17 +94,17 @@
       data: {
         labels: ["2012", "2013", "2014", "2015", "2016"],
         datasets: [{
-          label: 'Fatalities Over Years',
+          label: 'Fatalities',
           data: [8, 31, 25, 20, 1],
-          borderColor: '#e74a3b',
-          backgroundColor: 'rgba(231, 74, 59, 0.1)',
+          borderColor: '#ff6f61',
+          fill: false,
           tension: 0.4
         }]
       },
       options: {
         responsive: true,
         plugins: {
-          title: { display: true, text: 'Motorcycle Fatalities per Year' }
+          legend: { position: 'top' },
         }
       }
     });
@@ -92,21 +114,21 @@
       data: {
         labels: ["Unspecified", "Inattention", "Failure to Yield", "Outside Distraction", "Vehicular"],
         datasets: [{
-          label: 'Crash Factors',
+          label: 'Contributing Factors',
           data: [2104, 381, 157, 157, 154],
           backgroundColor: [
-            '#36a2eb',
-            '#ff6384',
-            '#ffcd56',
-            '#4bc0c0',
-            '#9966ff'
+            '#6a89cc',
+            '#38ada9',
+            '#e58e26',
+            '#f6b93b',
+            '#e55039'
           ]
         }]
       },
       options: {
         responsive: true,
         plugins: {
-          title: { display: true, text: 'Top Contributing Crash Factors' }
+          legend: { position: 'right' },
         }
       }
     });
