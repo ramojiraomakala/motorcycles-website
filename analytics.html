@@ -3,9 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Analytics</title>
+  <title>Crash Analytics</title>
   <link rel="stylesheet" href="CSS/styles.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    .analytics-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: #ffffff;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2rem;
+      color: #333;
+    }
+
+    canvas {
+      margin: 30px auto;
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
 </head>
 <body>
   <nav>
@@ -14,21 +38,33 @@
     <a href="crud.html">CRUD</a>
     <a href="analytics.html" class="active">Analytics</a>
   </nav>
-  <h1>Crash Analytics</h1>
-  <canvas id="boroughChart"></canvas>
-  <canvas id="fatalityChart"></canvas>
-  <canvas id="factorChart"></canvas>
+
+  <div class="analytics-container">
+    <h1>Crash Analytics Dashboard</h1>
+
+    <canvas id="boroughChart"></canvas>
+    <canvas id="fatalityChart"></canvas>
+    <canvas id="factorChart"></canvas>
+  </div>
+
   <script>
     new Chart(document.getElementById("boroughChart"), {
       type: 'bar',
       data: {
         labels: ["MANHATTAN", "BROOKLYN", "QUEENS", "BRONX", "STATEN ISLAND"],
         datasets: [{
-          label: 'Crashes',
-          data: [1084, 943, 692, 322, 95]
+          label: 'Crashes by Borough',
+          data: [1084, 943, 692, 322, 95],
+          backgroundColor: '#4e73df'
         }]
       },
-      options: { responsive: true }
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false },
+          title: { display: true, text: 'Motorcycle Crashes per Borough' }
+        }
+      }
     });
 
     new Chart(document.getElementById("fatalityChart"), {
@@ -36,11 +72,19 @@
       data: {
         labels: ["2012", "2013", "2014", "2015", "2016"],
         datasets: [{
-          label: 'Fatalities',
-          data: [8, 31, 25, 20, 1]
+          label: 'Fatalities Over Years',
+          data: [8, 31, 25, 20, 1],
+          borderColor: '#e74a3b',
+          backgroundColor: 'rgba(231, 74, 59, 0.1)',
+          tension: 0.4
         }]
       },
-      options: { responsive: true }
+      options: {
+        responsive: true,
+        plugins: {
+          title: { display: true, text: 'Motorcycle Fatalities per Year' }
+        }
+      }
     });
 
     new Chart(document.getElementById("factorChart"), {
@@ -48,11 +92,23 @@
       data: {
         labels: ["Unspecified", "Inattention", "Failure to Yield", "Outside Distraction", "Vehicular"],
         datasets: [{
-          label: 'Factors',
-          data: [2104, 381, 157, 157, 154]
+          label: 'Crash Factors',
+          data: [2104, 381, 157, 157, 154],
+          backgroundColor: [
+            '#36a2eb',
+            '#ff6384',
+            '#ffcd56',
+            '#4bc0c0',
+            '#9966ff'
+          ]
         }]
       },
-      options: { responsive: true }
+      options: {
+        responsive: true,
+        plugins: {
+          title: { display: true, text: 'Top Contributing Crash Factors' }
+        }
+      }
     });
   </script>
 </body>
