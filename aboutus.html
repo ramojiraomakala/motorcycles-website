@@ -6,21 +6,36 @@
   <title>About Us</title>
   <link rel="stylesheet" href="CSS/styles.css"/>
   <style>
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 20px;
+    body {
       font-family: 'Segoe UI', sans-serif;
+      background-color: #fefefe;
+      margin: 0;
+      padding: 0;
     }
 
-    .section {
-      margin-bottom: 20px;
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 30px 20px;
     }
 
     h1 {
       text-align: center;
+      font-size: 2.4rem;
+      margin-bottom: 25px;
+    }
+
+    .about-image {
+      display: block;
+      max-width: 600px;
+      width: 100%;
+      margin: 0 auto 40px auto;
+      border-radius: 8px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .section {
       margin-bottom: 30px;
-      font-size: 2.2rem;
     }
 
     h2 {
@@ -30,7 +45,11 @@
 
     p, ul {
       font-size: 1.1rem;
-      line-height: 1.6;
+      line-height: 1.8;
+    }
+
+    ul {
+      padding-left: 20px;
     }
 
     .repo-link {
@@ -44,13 +63,23 @@
       text-decoration: underline;
     }
 
-    .about-image {
-      width: 100%;
-      max-width: 600px;
-      display: block;
-      margin: 0 auto 30px;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    @media screen and (max-width: 600px) {
+      .container {
+        padding: 20px 12px;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .about-image {
+        max-width: 100%;
+        height: auto;
+      }
+
+      p, ul {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
@@ -65,7 +94,7 @@
   <div class="container">
     <h1>About This Project</h1>
 
-    <img src="images/about-speedometer.jpg" alt="Motorcycle Dashboard" class="about-image"/>
+    <img src="images/about-speedometer.jpg" alt="Motorcycle Dashboard" class="about-image" />
 
     <div class="section">
       <p>This website was created as part of an academic project for <strong>ISM 6225 – Distributed Information Systems</strong> at the University of South Florida.</p>
