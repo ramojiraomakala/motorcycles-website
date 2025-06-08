@@ -3,48 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Crash Analytics Dashboard</title>
+  <title>Crash Analytics</title>
   <link rel="stylesheet" href="CSS/styles.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     body {
+      background: linear-gradient(to bottom right, #f8f9fa, #e0f7fa);
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      background: linear-gradient(to bottom, #f0f4f8, #d9e2ec);
-      padding: 0;
+      padding: 20px;
     }
-    nav {
-      background-color: #0d1b2a;
-      padding: 15px;
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    nav a.active {
-      color: #00bcd4;
-    }
+
     h1 {
       text-align: center;
-      margin-top: 40px;
-      font-size: 2.5rem;
-      color: #102a43;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #333;
     }
-    .chart-container {
-      max-width: 1000px;
-      margin: 30px auto;
-      padding: 30px;
-      background: #fff;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-      border-radius: 12px;
+
+    section {
+      max-width: 900px;
+      margin: auto;
     }
+
+    .chart-section {
+      margin-bottom: 40px;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+
     canvas {
-      margin: 40px auto;
       max-width: 100%;
+      height: 400px !important;
     }
   </style>
 </head>
@@ -57,15 +49,22 @@
   </nav>
 
   <h1>Crash Analytics Dashboard</h1>
+  <section>
+    <div class="chart-section">
+      <h2 style="text-align:center;">Crashes by Borough</h2>
+      <canvas id="boroughChart"></canvas>
+    </div>
 
-  <div class="chart-container">
-    <h2 style="text-align:center">Crashes by Borough</h2>
-    <canvas id="boroughChart"></canvas>
-    <h2 style="text-align:center">Motorcyclist Fatalities Over the Years</h2>
-    <canvas id="fatalityChart"></canvas>
-    <h2 style="text-align:center">Top Contributing Factors</h2>
-    <canvas id="factorChart"></canvas>
-  </div>
+    <div class="chart-section">
+      <h2 style="text-align:center;">Motorcyclist Fatalities Over the Years</h2>
+      <canvas id="fatalityChart"></canvas>
+    </div>
+
+    <div class="chart-section">
+      <h2 style="text-align:center;">Top Contributing Factors</h2>
+      <canvas id="factorChart"></canvas>
+    </div>
+  </section>
 
   <script>
     new Chart(document.getElementById("boroughChart"), {
@@ -73,17 +72,16 @@
       data: {
         labels: ["MANHATTAN", "BROOKLYN", "QUEENS", "BRONX", "STATEN ISLAND"],
         datasets: [{
-          label: 'Number of Crashes',
+          label: 'Crashes',
           data: [1084, 943, 692, 322, 95],
           backgroundColor: '#00bcd4'
         }]
       },
       options: {
         responsive: true,
-        plugins: {
-          legend: { display: false },
-          title: {
-            display: false
+        scales: {
+          y: {
+            beginAtZero: true
           }
         }
       }
@@ -96,16 +94,14 @@
         datasets: [{
           label: 'Fatalities',
           data: [8, 31, 25, 20, 1],
-          borderColor: '#ff6f61',
           fill: false,
-          tension: 0.4
+          borderColor: '#f44336',
+          tension: 0.3,
+          pointBackgroundColor: '#f44336'
         }]
       },
       options: {
-        responsive: true,
-        plugins: {
-          legend: { position: 'top' },
-        }
+        responsive: true
       }
     });
 
@@ -114,22 +110,19 @@
       data: {
         labels: ["Unspecified", "Inattention", "Failure to Yield", "Outside Distraction", "Vehicular"],
         datasets: [{
-          label: 'Contributing Factors',
+          label: 'Factors',
           data: [2104, 381, 157, 157, 154],
           backgroundColor: [
-            '#6a89cc',
-            '#38ada9',
-            '#e58e26',
-            '#f6b93b',
-            '#e55039'
+            '#3f51b5',
+            '#00acc1',
+            '#ffa000',
+            '#ff7043',
+            '#9ccc65'
           ]
         }]
       },
       options: {
-        responsive: true,
-        plugins: {
-          legend: { position: 'right' },
-        }
+        responsive: true
       }
     });
   </script>
