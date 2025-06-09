@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Crash Analytics</title>
   <link rel="stylesheet" href="CSS/styles.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -12,26 +12,32 @@
       margin: 0;
       background: linear-gradient(to bottom right, #e0f2ff, #f4f9ff);
     }
+
     nav {
       background-color: #0b132b;
-      color: white;
-      padding: 10px 20px;
+      padding: 15px 30px;
       display: flex;
-      gap: 20px;
+      gap: 25px;
+      font-weight: 500;
     }
+
     nav a {
       color: white;
       text-decoration: none;
     }
-    nav .active {
+
+    nav a.active {
       font-weight: bold;
       text-decoration: underline;
     }
+
     h1 {
       text-align: center;
-      margin-top: 30px;
+      font-size: 2.2rem;
+      margin: 30px 0 10px;
       color: #0b132b;
     }
+
     .chart-section {
       display: flex;
       flex-wrap: wrap;
@@ -41,6 +47,7 @@
       max-width: 1200px;
       padding: 0 20px;
     }
+
     .chart-box {
       background-color: white;
       border-radius: 12px;
@@ -49,6 +56,7 @@
       flex: 1 1 350px;
       max-width: 500px;
     }
+
     canvas {
       max-width: 100%;
       height: auto;
@@ -57,13 +65,13 @@
 </head>
 <body>
   <nav>
-    <a href="index.html">Home</a>
-    <a href="aboutus.html">About Us</a>
-    <a href="crud.html">CRUD</a>
-    <a href="analytics.html" class="active">Analytics</a>
+    <a href="index.html">HOME</a>
+    <a href="aboutus.html">ABOUT US</a>
+    <a href="crud.html">RECORD AN ACCIDENT</a>
+    <a href="analytics.html" class="active">ANALYTICS</a>
   </nav>
 
-  <h1>Crash Analytics</h1>
+  <h1>Crash Analytics Dashboard</h1>
 
   <div class="chart-section">
     <div class="chart-box">

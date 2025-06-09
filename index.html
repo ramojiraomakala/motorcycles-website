@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Motorcycle Crash Dashboard</title>
-  <link rel="stylesheet" href="CSS/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home | Motorcycle Crash Insights</title>
+  <link rel="stylesheet" href="CSS/styles.css" />
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f9f9f9;
       margin: 0;
-      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
     }
 
     nav {
-      background-color: #333;
-      padding: 10px 20px;
+      background-color: #0b132b;
+      padding: 15px 30px;
       display: flex;
-      gap: 15px;
+      gap: 25px;
+      font-weight: 500;
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      font-weight: 500;
     }
 
     nav a.active {
@@ -31,51 +30,141 @@
       text-decoration: underline;
     }
 
-    .banner {
+    .hero {
+      position: relative;
       width: 100%;
-      max-height: 450px;
-      object-fit: contain;
+      max-height: 420px;
+      overflow: hidden;
+    }
+
+    .hero img {
+      width: 100%;
+      height: auto;
       display: block;
-      margin: 0 auto;
     }
 
-    section {
+    .hero-text {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
       text-align: center;
-      padding: 30px 20px;
+      color: white;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+    }
+
+    .hero-text h1 {
+      font-size: 2.8rem;
+      margin: 0;
+    }
+
+    .hero-text p {
+      font-size: 1.1rem;
+      margin-top: 10px;
+      max-width: 700px;
+    }
+
+    .section {
       max-width: 900px;
-      margin: auto;
+      margin: 50px auto;
+      text-align: center;
+      padding: 0 20px;
     }
 
-    h1 {
-      margin-top: 30px;
-      font-size: 2em;
-      color: #222;
+    .section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      color: #0b132b;
     }
 
-    p {
-      font-size: 1.1em;
-      color: #444;
-      margin-top: 15px;
+    .section p {
+      font-size: 1.1rem;
       line-height: 1.6;
+      color: #333;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 10px 20px;
+    }
+
+    .feature-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      padding: 30px 20px;
+      width: 260px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-card h3 {
+      font-size: 1.2rem;
+      color: #0b132b;
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #888;
+      padding: 30px 0 20px;
     }
   </style>
 </head>
 <body>
   <nav>
-    <a href="index.html" class="active">Home</a>
-    <a href="aboutus.html">About Us</a>
-    <a href="crud.html">CRUD</a>
-    <a href="analytics.html">Analytics</a>
+    <a href="index.html" class="active">HOME</a>
+    <a href="aboutus.html">ABOUT US</a>
+    <a href="crud.html">RECORD AN ACCIDENT</a>
+    <a href="analytics.html">ANALYTICS</a>
   </nav>
 
-  <section>
-    <img src="images/Motorcycle_Safety.jpg" alt="Motorcycle Banner" class="banner">
-    <h1>Welcome to Motorcycle Crash Insights</h1>
-    <p>
-      This interactive website brings awareness to motorcycle-related accidents in New York City.
-      It showcases visual insights, common causes of crashes, and allows users to simulate and manage accident records.
-      Use the navigation above to learn more and engage with the data.
-    </p>
+  <section class="hero">
+    <img src="images/motorcycle_safety_banner_24 (1).jpg" alt="Motorcycle Safety Banner">
+    <div class="hero-text">
+      <h1>Motorcycle Crash Insights</h1>
+      <p>Explore real data, record new accidents, and visualize the impact — all in one place.</p>
+    </div>
   </section>
+
+  <div class="section">
+    <h2>Why Motorcycle Safety Matters</h2>
+    <p>Motorcyclists face a higher risk of fatal and serious injuries compared to other road users. In urban areas like NYC, crashes are frequent — but many are preventable. Our platform empowers users to understand, track, and prevent such incidents.</p>
+  </div>
+
+  <div class="section">
+    <h2>What This Website Offers</h2>
+    <div class="features">
+      <div class="feature-card">
+        <h3>Data Visualization</h3>
+        <p>Interactive charts show crash patterns across boroughs, years, and contributing factors.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Recording an Accident</h3>
+        <p>Use the CRUD interface to simulate new crash records with cause, injury, and borough.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Awareness Through Insight</h3>
+        <p>Identify common causes and trends that help drive public awareness and prevention.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Motorcycle Crash Insights | Built for ISM 6225
+  </footer>
 </body>
 </html>

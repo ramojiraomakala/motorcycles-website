@@ -1,26 +1,47 @@
 /* CSS/styles.css */
 body {
   font-family: 'Segoe UI', sans-serif;
-  margin: 20px;
+  margin: 0;
   background-color: #f9f9f9;
 }
 
+/* Navigation bar */
 nav {
-  margin-bottom: 20px;
+  background-color: #0b132b;
+  padding: 15px 30px;
   display: flex;
-  gap: 15px;
+  gap: 25px;
+  font-weight: 500;
 }
 
 nav a {
   text-decoration: none;
-  color: #333;
+  color: white;
 }
 
 nav .active {
   font-weight: bold;
-  color: #007bff;
+  text-decoration: underline;
+  color: #00bfff;
 }
 
+/* Hero section fix */
+.hero {
+  background: url('images/motorcycle_safety_banner_24 (1).jpg') no-repeat center top;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding-bottom: 40px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+/* General headings */
 h1 {
   text-align: center;
 }
@@ -33,7 +54,8 @@ form {
   margin: 20px 0;
 }
 
-form input, form button {
+form input,
+form button {
   padding: 10px;
   font-size: 1rem;
 }
@@ -43,7 +65,8 @@ form input, form button {
   border-collapse: collapse;
 }
 
-#accidentTable th, #accidentTable td {
+#accidentTable th,
+#accidentTable td {
   border: 1px solid #ccc;
   padding: 10px;
   text-align: center;
@@ -61,7 +84,8 @@ form input, form button {
     flex-direction: column;
   }
 
-  form input, form button {
+  form input,
+  form button {
     width: 100%;
   }
 }

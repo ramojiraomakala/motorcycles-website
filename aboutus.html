@@ -2,111 +2,119 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About Us</title>
   <link rel="stylesheet" href="CSS/styles.css" />
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f9f9f9;
       margin: 0;
-      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
     }
 
     nav {
-      background-color: #ffffff;
+      background-color: #0b132b;
       padding: 15px 30px;
       display: flex;
-      gap: 20px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #333;
+      gap: 25px;
       font-weight: 500;
     }
 
-    nav .active {
-      color: #007bff;
+    nav a {
+      color: white;
+      text-decoration: none;
+    }
+
+    nav a.active {
       font-weight: bold;
+      text-decoration: underline;
+    }
+
+    .about-hero {
+      background: url('images/about-speedometer.jpg') no-repeat center center/cover;
+      height: 250px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
     .container {
       max-width: 900px;
-      margin: 0 auto;
+      margin: 0 auto 40px;
       padding: 40px 20px;
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .section {
+      margin-bottom: 30px;
     }
 
     h1 {
       text-align: center;
-      margin-bottom: 30px;
-      font-size: 2rem;
+      font-size: 2.4rem;
+      margin: 40px 0 20px;
+      color: #0b132b;
     }
 
-    .about-image {
-      display: block;
-      max-width: 100%;
-      height: auto;
-      border-radius: 12px;
-      margin: 0 auto 30px auto;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    h2 {
+      color: #0b132b;
+      margin-bottom: 10px;
     }
 
     p, ul {
       font-size: 1.1rem;
       line-height: 1.6;
-      color: #333;
+      color: #444;
     }
 
-    h2 {
-      margin-top: 30px;
-      font-size: 1.5rem;
-      color: #222;
+    ul li {
+      margin-bottom: 8px;
     }
 
-    .repo-link {
-      display: inline-block;
-      margin-top: 20px;
+    a.repo-link {
       color: #007bff;
       text-decoration: none;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
   <nav>
-    <a href="index.html">Home</a>
-    <a href="aboutus.html" class="active">About Us</a>
-    <a href="crud.html">CRUD</a>
-    <a href="analytics.html">Analytics</a>
+    <a href="index.html">HOME</a>
+    <a href="aboutus.html" class="active">ABOUT US</a>
+    <a href="crud.html">RECORD AN ACCIDENT</a>
+    <a href="analytics.html">ANALYTICS</a>
   </nav>
 
+  <div class="about-hero"></div>
+
+  <h1>Meet the Developer</h1>
+
   <div class="container">
-    <h1>About This Project</h1>
-    <img src="images/about-speedometer.jpg" alt="Motorcycle Dashboard" class="about-image" />
+    <div class="section">
+      <p>Hello! I’m <strong>Ramoji Rao Makala</strong>, a graduate student in AI and Business Analytics at the University of South Florida. I’m passionate about web development, data analytics, and creating user-centered digital solutions. This website was created to demonstrate concepts learned in frontend design, form-based CRUD operations, and interactive visualization using JavaScript libraries.</p>
+    </div>
 
-    <p>This website was created as part of an academic project for <strong>ISM 6225 – Distributed Information Systems</strong> at the University of South Florida.</p>
-    <p>It provides a dashboard and interactive tools to explore crash statistics involving motorcycles, with a focus on NYC accident data.</p>
+    <div class="section">
+      <h2>Development Process</h2>
+      <p>The website was developed using Visual Studio Code. I began by outlining the structure of each HTML page: Home, About Us, CRUD, and Analytics. CSS was used extensively for layout, theming, and responsiveness. JavaScript handled CRUD interactivity and Chart.js was used for rendering graphs. The data on motorcycle crashes was represented using realistic input fields and static chart data sourced from NYC open datasets.</p>
+    </div>
 
-    <h2>Key Features</h2>
-    <ul>
-      <li>Interactive data visualizations (Chart.js)</li>
-      <li>Mock CRUD (Create, Read, Update, Delete) operations</li>
-      <li>Responsive and accessible design</li>
-    </ul>
+    <div class="section">
+      <h2>Technologies Used</h2>
+      <ul>
+        <li>HTML5 & CSS3 for layout and styling</li>
+        <li>JavaScript for logic and form operations</li>
+        <li>Chart.js for building interactive charts</li>
+        <li>Cyberduck for deployment & GitHub for version control</li>
+      </ul>
+    </div>
 
-    <h2>Technologies Used</h2>
-    <ul>
-      <li>HTML5, CSS3, JavaScript</li>
-      <li>Chart.js for analytics</li>
-      <li>GitHub & Cyberduck for deployment</li>
-    </ul>
-
-    <p><strong>Created by:</strong> Ramoji Rao Makala</p>
-    <a class="repo-link" href="https://github.com/ramojiraomakala/motorcycles-website" target="_blank">View GitHub Repository</a>
+    <div class="section">
+      <h2>Source Code</h2>
+      <p>All source code files are uploaded and maintained in my GitHub repository.</p>
+      <p><a class="repo-link" href="https://github.com/ramojiraomakala/motorcycles-website" target="_blank">View GitHub Repository</a></p>
+    </div>
   </div>
 </body>
 </html>
